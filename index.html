@@ -19,7 +19,7 @@
 <!-- Open Graph / partage social -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:site_name" content="iPhone 18 Pro — lancement-pro.fr">
+<meta property="og:site_name" content="Lancement Pro">
 <meta property="og:title" content="iPhone 18 Pro et Pro Max : date de sortie, précommande et prix">
 <meta property="og:description" content="Date de sortie estimée, précommande, disponibilité et prix attendu, coloris et appareil photo. Comparatif Pro / Pro Max et diagnostic pour choisir votre modèle.">
 <meta property="og:url" content="https://www.lancement-pro.fr/">
@@ -164,6 +164,8 @@ header.site-nav.scrolled{
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
 .nav-mark{font-family:var(--font-display);font-size:19px;letter-spacing:-0.01em;text-decoration:none;}
 .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:13.5px;}
+/* Élément masqué à la demande, conservé dans le code pour réactivation ultérieure */
+.nav-item-hidden{display:none;}
 .nav-links a{text-decoration:none;opacity:.72;transition:opacity .25s;}
 .nav-links a:hover,.nav-links a:focus-visible{opacity:1;}
 .nav-cta{display:flex;align-items:center;gap:14px;}
@@ -563,6 +565,7 @@ section{position:relative;padding:130px 0;}
   margin-top:18px;font-family:var(--font-mono);font-size:12px;color:var(--text-light-soft);
   border-top:1px solid var(--line-light);padding-top:18px;line-height:1.6;max-width:320px;
 }
+.price-preorder-cta{margin-top:24px;}
 
 /* ================= UPCOMING / EMAIL ================= */
 .upcoming{
@@ -738,10 +741,11 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
 <!-- ================= NAV ================= -->
 <header class="site-nav" id="siteNav">
   <div class="wrap nav-inner">
-    <a href="#top" class="nav-mark">iPhone 18</a>
+    <a href="#top" class="nav-mark">Lancement Pro</a>
     <nav aria-label="Navigation principale">
       <ul class="nav-links">
-        <li><a href="#pro-max">Pro Max</a></li>
+        <!-- Lien masqué du menu à la demande — conservé dans le code pour réactivation ultérieure (retirer class="nav-item-hidden") -->
+        <li class="nav-item-hidden"><a href="#pro-max">Pro Max</a></li>
         <li><a href="#couleurs">Couleurs</a></li>
         <li><a href="#diagnostic">Trouver le mien</a></li>
         <li><a href="#comparer">Comparer</a></li>
@@ -761,7 +765,8 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
 <div class="nav-panel" id="navPanel" hidden>
   <nav aria-label="Navigation mobile">
     <ul>
-      <li><a href="#pro-max">Pro Max</a></li>
+      <!-- Lien masqué du menu à la demande — conservé dans le code pour réactivation ultérieure (retirer class="nav-item-hidden") -->
+      <li class="nav-item-hidden"><a href="#pro-max">Pro Max</a></li>
       <li><a href="#couleurs">Couleurs</a></li>
       <li><a href="#diagnostic">Trouver le mien</a></li>
       <li><a href="#comparer">Comparer</a></li>
@@ -1029,6 +1034,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
           <span class="price-amount" id="priceAmount">0 €</span>
         </p>
         <p class="price-model-label" id="priceModelLabel">Estimation pour l'iPhone 18 Pro — basée sur la hausse appliquée l'an dernier. Le prix confirmé sera celui annoncé par Apple au lancement.</p>
+        <a href="#disponibilite" class="btn on-dark price-preorder-cta">Pré-commandez</a>
       </div>
     </div>
   </div>
@@ -1166,7 +1172,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <p class="footer-mark">iPhone 18</p>
+        <p class="footer-mark">Lancement Pro</p>
         <p class="footer-intro">Une expérience de découverte pour deux modèles, pensée pour aider à choisir — pas à vendre à tout prix.</p>
       </div>
       <div class="footer-col">
