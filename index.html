@@ -10,8 +10,8 @@
      Un simple rechercher/remplacer suffit.
      ============================================================ -->
 
-<title>iPhone 18 Pro Max : date de sortie, prix et précommande</title>
-<meta name="description" content="iPhone 18 Pro et Pro Max sur Lancement Pro : date de sortie estimée, disponibilité, prix attendu, ouverture des précommandes, coloris et caractéristiques. Comparatif des deux modèles et diagnostic pour choisir.">
+<title>iPhone 18 Pro et Pro Max : date de sortie, précommande et prix</title>
+<meta name="description" content="iPhone 18 Pro et Pro Max : date de sortie estimée, précommande, disponibilité et prix attendu, coloris et appareil photo. Comparatif des deux modèles et diagnostic pour choisir le vôtre avant le lancement officiel.">
 <link rel="canonical" href="https://www.lancement-pro.fr/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#F5F2ED">
@@ -19,15 +19,15 @@
 <!-- Open Graph / partage social -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:site_name" content="Lancement Pro">
-<meta property="og:title" content="iPhone 18 Pro Max : date de sortie, prix et précommande">
-<meta property="og:description" content="Date de sortie estimée, disponibilité, prix attendu et ouverture des précommandes pour l'iPhone 18 Pro et Pro Max. Comparatif Pro / Pro Max et diagnostic pour choisir votre modèle.">
+<meta property="og:site_name" content="iPhone 18 Pro — lancement-pro.fr">
+<meta property="og:title" content="iPhone 18 Pro et Pro Max : date de sortie, précommande et prix">
+<meta property="og:description" content="Date de sortie estimée, précommande, disponibilité et prix attendu, coloris et appareil photo. Comparatif Pro / Pro Max et diagnostic pour choisir votre modèle.">
 <meta property="og:url" content="https://www.lancement-pro.fr/">
 <meta property="og:image" content="https://www.lancement-pro.fr/images/hero-iphone-18-pro-max.webp">
 <meta property="og:image:alt" content="iPhone 18 Pro Max présenté dans quatre coloris">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="iPhone 18 Pro Max : date de sortie, prix et précommande">
-<meta name="twitter:description" content="Date de sortie estimée, disponibilité et ouverture des précommandes pour l'iPhone 18 Pro et Pro Max. Comparatif Pro / Pro Max.">
+<meta name="twitter:title" content="iPhone 18 Pro Max : date de sortie, précommande et prix">
+<meta name="twitter:description" content="Date de sortie estimée, précommande, disponibilité et prix attendu, coloris et appareil photo. Comparatif Pro / Pro Max.">
 <meta name="twitter:image" content="https://www.lancement-pro.fr/images/hero-iphone-18-pro-max.webp">
 
 <!-- Favicon : déposez ces fichiers à la racine (voir README) -->
@@ -206,7 +206,7 @@ header.site-nav.scrolled{
 }
 .nav-panel.open{opacity:1;transform:translateY(0);}
 .nav-panel ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;}
-.nav-panel a{
+.nav-panel a:not(.btn){
   display:block;
   padding:16px 0;
   font-family:var(--font-display);
@@ -216,7 +216,7 @@ header.site-nav.scrolled{
   text-decoration:none;
   border-bottom:1px solid var(--line);
 }
-.nav-panel a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.nav-panel a:not(.btn):focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 .nav-panel .btn{margin-top:28px;width:100%;justify-content:center;}
 body.nav-open{overflow:hidden;}
 
@@ -224,7 +224,7 @@ body.nav-open{overflow:hidden;}
   .nav-links{display:none;}
   .nav-cta .btn{display:none;}
   .nav-toggle{display:inline-flex;}
-  .nav-panel{display:block;}
+  .nav-panel:not([hidden]){display:block;}
 }
 
 /* ================= HERO ================= */
@@ -579,7 +579,7 @@ section{position:relative;padding:130px 0;}
 .email-row input[type="email"]{
   flex:1;min-width:200px;padding:14px 18px;border-radius:999px;
   border:1px solid rgba(32,31,38,0.2);background:rgba(245,242,237,0.7);
-  font-family:var(--font-body);font-size:16px;color:var(--text-ink);
+  font-family:var(--font-body);font-size:14.5px;color:var(--text-ink);
 }
 .email-row input[type="email"]:focus-visible{outline:2px solid var(--text-ink);outline-offset:1px;}
 .email-consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--text-ink-soft);line-height:1.5;}
@@ -696,57 +696,38 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
 }
 .skip-link:focus{top:16px;}
 
-/* ================= MOBILE-FIRST — CONFORT TACTILE ================= */
-/* S'applique à toutes les tailles : cible zéro délai au tap et une zone
-   de clic d'au moins 44px sur tous les éléments interactifs. */
-a,button,.swatch,.diag-option,.faq-q{touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
-body{overflow-wrap:break-word;word-break:break-word;}
-.btn{min-height:46px;}
-.nav-toggle{min-width:44px;min-height:44px;}
-.price-toggle button{padding:12px 18px;}
-
-/* ================= MOBILE-FIRST — TABLETTE / GRAND MOBILE (≤600px) ================= */
+/* ================= RENFORTS MOBILE-FIRST ================= */
+/* Zones tactiles agrandies (norme ~44px) sans changer l'apparence visuelle */
 @media (max-width:600px){
-  .footer-grid{grid-template-columns:1fr 1fr;gap:32px 24px;}
-  .price-panel{padding:36px 26px;}
-  .upcoming{padding:32px 22px;}
+  .eco-card .eco-cta{
+    padding:10px 0;margin:8px -4px -8px;padding-left:4px;padding-right:4px;
+    min-height:44px;display:inline-flex;align-items:center;
+  }
+  .price-toggle button{padding:12px 20px;min-height:44px;}
+  .diag-restart{padding:12px 0;min-height:44px;display:inline-flex;align-items:center;}
+  .faq-q{padding:20px 0;min-height:44px;}
+  .swatch{width:48px;height:48px;}
+  .compare-cta{min-height:46px;}
+  .btn{min-height:46px;}
+  .nav-toggle{min-width:44px;min-height:44px;}
 }
 
-/* ================= MOBILE-FIRST — SMARTPHONE (≤480px) ================= */
-@media (max-width:480px){
-  .wrap{padding:0 18px;}
-  section{padding:64px 0;}
-  .hero{padding-top:120px;padding-bottom:56px;}
+/* Prise en compte des encoches / zones sûres iOS (notch, barre de gestes) */
+@supports (padding: max(0px)){
+  header.site-nav{padding-left:max(0px, env(safe-area-inset-left));padding-right:max(0px, env(safe-area-inset-right));}
+  .cookie-banner{
+    left:max(16px, calc(16px + env(safe-area-inset-left)));
+    right:max(16px, calc(16px + env(safe-area-inset-right)));
+    bottom:max(16px, calc(16px + env(safe-area-inset-bottom)));
+  }
+  .nav-panel{padding-bottom:max(40px, calc(40px + env(safe-area-inset-bottom)));}
+}
 
-  /* Tous les boutons d'action passent en pleine largeur, empilés,
-     pour un tap confortable à une main. */
-  .hero-actions{flex-direction:column;align-items:stretch;gap:12px;}
-  .hero-actions .btn{width:100%;justify-content:center;}
-  .btn{min-height:48px;}
-  .compare-col .btn.compare-cta{width:100%;justify-content:center;}
-  .cookie-actions{flex-direction:column;}
-  .cookie-actions .btn{width:100%;justify-content:center;}
-
-  /* Formulaire d'alerte lancement : champ et bouton empilés,
-     pleine largeur, zone de tap maximale. */
-  .email-row{flex-direction:column;align-items:stretch;}
-  .email-row input[type="email"]{width:100%;}
-  .email-row .btn{width:100%;justify-content:center;}
-
-  /* Densité réduite des blocs pour éviter l'effet "compressé" en mobile. */
+/* Empêche tout débordement horizontal résiduel sur très petits écrans */
+@media (max-width:380px){
+  .wrap{padding:0 16px;}
   .diagnostic{padding:20px;}
-  .diag-option{padding:16px 18px;font-size:14.5px;}
-  .compare-col{padding:24px;}
-  .color-lab{padding:28px 18px;}
-  .price-panel{padding:28px 22px;}
-  .upcoming{padding:26px 18px;}
-  .ledger-desc{margin-left:0;}
-  .ledger-row{gap:10px;}
-  .footer-grid{grid-template-columns:1fr;gap:36px;}
-  .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px;}
-  .nav-mark{font-size:17px;}
-  .eco-card .eco-cta{padding:6px 0;display:inline-block;}
-  .cookie-banner{left:10px;right:10px;bottom:10px;padding:18px;}
+  .compare-col{padding:22px;}
 }
 </style>
 </head>
@@ -757,9 +738,10 @@ body{overflow-wrap:break-word;word-break:break-word;}
 <!-- ================= NAV ================= -->
 <header class="site-nav" id="siteNav">
   <div class="wrap nav-inner">
-    <a href="#top" class="nav-mark">Lancement Pro</a>
+    <a href="#top" class="nav-mark">iPhone 18</a>
     <nav aria-label="Navigation principale">
       <ul class="nav-links">
+        <li><a href="#pro-max">Pro Max</a></li>
         <li><a href="#couleurs">Couleurs</a></li>
         <li><a href="#diagnostic">Trouver le mien</a></li>
         <li><a href="#comparer">Comparer</a></li>
@@ -779,6 +761,7 @@ body{overflow-wrap:break-word;word-break:break-word;}
 <div class="nav-panel" id="navPanel" hidden>
   <nav aria-label="Navigation mobile">
     <ul>
+      <li><a href="#pro-max">Pro Max</a></li>
       <li><a href="#couleurs">Couleurs</a></li>
       <li><a href="#diagnostic">Trouver le mien</a></li>
       <li><a href="#comparer">Comparer</a></li>
@@ -802,7 +785,7 @@ body{overflow-wrap:break-word;word-break:break-word;}
         <a href="#couleurs" class="btn primary">Voir les couleurs</a>
         <a href="#comparer" class="btn">Comparer les modèles</a>
       </div>
-      <p class="hero-note">Page de pré-lancement sur Lancement Pro, avant la date de sortie officielle et l'ouverture des précommandes.</p>
+      <p class="hero-note">Page de pré-lancement, avant l'annonce officielle d'Apple.</p>
     </div>
     <div class="hero-stage">
       <div class="halo" id="heroHalo"></div>
@@ -1056,9 +1039,9 @@ body{overflow-wrap:break-word;word-break:break-word;}
   <div class="wrap">
     <div class="upcoming reveal">
       <div>
-        <p class="eyebrow">Date de sortie, précommande et disponibilité</p>
-        <h2>Soyez prévenu dès l'annonce officielle.</h2>
-        <p>Un seul email au moment du lancement : date de sortie confirmée, ouverture des précommandes, prix réels et disponibilité de l'iPhone 18 Pro et Pro Max. Pas de newsletter quotidienne, pas de revente de vos données.</p>
+        <p class="eyebrow">Précommande &amp; disponibilité</p>
+        <h2>Soyez prévenu dès l'ouverture des précommandes.</h2>
+        <p>Un seul email au moment du lancement : date de sortie officielle, ouverture des précommandes, disponibilité et prix réels. Pas de newsletter quotidienne, pas de revente de vos données.</p>
       </div>
 
       <!-- ============================================================
@@ -1149,8 +1132,12 @@ body{overflow-wrap:break-word;word-break:break-word;}
         <div class="faq-a"><p>Le format, en priorité — écran, autonomie et puce (A20 pour le Pro, A20 Pro pour le Pro Max) évoluent avec la taille. Les deux partagent la même finition et la même génération technologique.</p></div>
       </div>
       <div class="faq-item">
-        <h3><button type="button" class="faq-q"><span>Quelle est la date de sortie et quand ouvrent les précommandes&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button></h3>
-        <div class="faq-a"><p>Apple lance traditionnellement ses iPhone en septembre — une annonce à l'automne 2026 est donc attendue, avec une ouverture des précommandes quelques jours après le keynote et une disponibilité en boutique la semaine suivante. Le Pro et le Pro Max ouvriraient le bal, suivis par l'iPhone 18 standard début 2027. Inscrivez-vous ci-dessus pour être prévenu dès la date officielle connue.</p></div>
+        <h3><button type="button" class="faq-q"><span>Quand seront-ils disponibles, et peut-on précommander&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button></h3>
+        <div class="faq-a"><p>Apple lance traditionnellement ses iPhone en septembre, avec une période de précommande qui s'ouvre généralement quelques jours avant la disponibilité en boutique. Une annonce à l'automne 2026 est donc attendue pour l'iPhone 18 Pro et Pro Max, précommandes comprises. Le Pro et le Pro Max ouvriraient le bal, suivis par l'iPhone 18 standard début 2027.</p></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" class="faq-q"><span>Comment être alerté de l'ouverture des précommandes&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button></h3>
+        <div class="faq-a"><p>Inscrivez votre email dans la section « Précommande &amp; disponibilité » de cette page&nbsp;: vous recevrez un seul message dès l'annonce officielle d'Apple, avec la date de sortie, l'ouverture des précommandes et le prix confirmé de l'iPhone 18 Pro et Pro Max.</p></div>
       </div>
       <div class="faq-item">
         <h3><button type="button" class="faq-q"><span>Quels coloris seront proposés&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button></h3>
@@ -1179,7 +1166,7 @@ body{overflow-wrap:break-word;word-break:break-word;}
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <p class="footer-mark">Lancement Pro</p>
+        <p class="footer-mark">iPhone 18</p>
         <p class="footer-intro">Une expérience de découverte pour deux modèles, pensée pour aider à choisir — pas à vendre à tout prix.</p>
       </div>
       <div class="footer-col">
@@ -1218,7 +1205,7 @@ body{overflow-wrap:break-word;word-break:break-word;}
     </p>
 
     <div class="footer-bottom">
-      <span>© 2026 — Tous droits réservés.</span>
+      <span>© 2026 lancement-pro.fr — Tous droits réservés.</span>
       <span><a href="mentions-legales.html">Mentions légales</a> · <a href="politique-confidentialite.html">Confidentialité</a></span>
     </div>
   </div>
@@ -1242,15 +1229,15 @@ body{overflow-wrap:break-word;word-break:break-word;}
       "@type": "WebSite",
       "@id": "https://www.lancement-pro.fr/#website",
       "url": "https://www.lancement-pro.fr/",
-      "name": "Lancement Pro",
+      "name": "iPhone 18 Pro",
       "inLanguage": "fr-FR"
     },
     {
       "@type": "WebPage",
       "@id": "https://www.lancement-pro.fr/#webpage",
       "url": "https://www.lancement-pro.fr/",
-      "name": "iPhone 18 Pro Max : date de sortie, prix et précommande",
-      "description": "Date de sortie estimée, disponibilité, prix attendu et ouverture des précommandes de l'iPhone 18 Pro et Pro Max. Comparatif des deux modèles et diagnostic pour choisir.",
+      "name": "iPhone 18 Pro et Pro Max : date de sortie, précommande et prix",
+      "description": "Date de sortie estimée, précommande, disponibilité et prix attendu de l'iPhone 18 Pro et Pro Max. Comparatif des deux modèles et diagnostic pour choisir.",
       "isPartOf": { "@id": "https://www.lancement-pro.fr/#website" },
       "inLanguage": "fr-FR"
     },
@@ -1269,10 +1256,18 @@ body{overflow-wrap:break-word;word-break:break-word;}
         },
         {
           "@type": "Question",
-          "name": "Quelle est la date de sortie de l'iPhone 18 Pro Max et quand ouvrent les précommandes ?",
+          "name": "Quand l'iPhone 18 Pro et Pro Max seront-ils disponibles, et peut-on précommander ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Apple lance traditionnellement ses iPhone en septembre. Une annonce à l'automne 2026 est donc attendue, avec une ouverture des précommandes quelques jours après le keynote et une disponibilité en boutique la semaine suivante. Le Pro et le Pro Max ouvriraient le bal, suivis par l'iPhone 18 standard début 2027."
+            "text": "Apple lance traditionnellement ses iPhone en septembre, avec une période de précommande qui s'ouvre généralement quelques jours avant la disponibilité en boutique. Une annonce à l'automne 2026 est donc attendue pour l'iPhone 18 Pro et Pro Max, précommandes comprises. Le Pro et le Pro Max ouvriraient le bal, suivis par l'iPhone 18 standard début 2027."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment être alerté de l'ouverture des précommandes de l'iPhone 18 Pro Max ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En s'inscrivant avec son email sur lancement-pro.fr, dans la section Précommande & disponibilité. Un seul message est envoyé, dès l'annonce officielle d'Apple, avec la date de sortie, l'ouverture des précommandes et le prix confirmé."
           }
         },
         {
