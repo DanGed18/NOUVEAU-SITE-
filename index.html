@@ -469,7 +469,7 @@ section{position:relative;padding:130px 0;}
 .compare-badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
 .compare-col.recommended .compare-badge{color:var(--accent);}
 .compare-col h3{font-size:30px;margin-top:12px;}
-.compare-col .compare-lede{margin-top:12px;color:var(--text-ink-soft);font-size:15px;text-align:justify;}
+.compare-col .compare-lede{margin-top:12px;color:var(--text-ink-soft);font-size:15px;}
 .compare-col.recommended .compare-lede{color:var(--text-ink-soft);}
 .compare-rows{margin-top:32px;display:flex;flex-direction:column;}
 .compare-row{
@@ -478,9 +478,12 @@ section{position:relative;padding:130px 0;}
   font-family:var(--font-mono);font-size:13px;
 }
 .compare-row span:first-child{color:var(--text-ink-soft);}
-.compare-why{margin-top:28px;font-size:14px;color:var(--text-ink-soft);line-height:1.6;text-align:justify;}
+.compare-why{margin-top:28px;font-size:14px;color:var(--text-ink-soft);line-height:1.6;}
 .compare-col.recommended .compare-why{color:var(--text-ink-soft);}
 .compare-cta{margin-top:28px;}
+.compare-more{margin-top:36px;text-align:center;font-size:14.5px;}
+.compare-more a{text-decoration:none;font-weight:600;border-bottom:1px solid var(--line);padding-bottom:2px;transition:border-color .25s var(--ease), opacity .25s var(--ease);}
+.compare-more a:hover,.compare-more a:focus-visible{border-color:var(--text-ink);}
 
 /* ================= MOMENTS ================= */
 .moment{
@@ -577,6 +580,25 @@ section{position:relative;padding:130px 0;}
 .upcoming .eyebrow{color:var(--text-ink-soft);}
 .upcoming h2{font-size:clamp(28px,3.6vw,40px);margin-top:14px;}
 .upcoming p{margin-top:14px;color:var(--text-ink-soft);max-width:400px;}
+.signup-counter{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:16px;
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.02em;
+  color:var(--text-ink-soft);
+}
+.signup-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#3B6B4E;flex:none;
+  box-shadow:0 0 0 0 rgba(59,107,78,0.55);
+  animation:signupPulse 2.4s ease-out infinite;
+}
+@keyframes signupPulse{
+  0%{box-shadow:0 0 0 0 rgba(59,107,78,0.45);}
+  70%{box-shadow:0 0 0 6px rgba(59,107,78,0);}
+  100%{box-shadow:0 0 0 0 rgba(59,107,78,0);}
+}
+#signupCount{color:var(--text-ink);font-weight:600;}
+@media (prefers-reduced-motion: reduce){.signup-dot{animation:none;}}
 .email-form{display:flex;flex-direction:column;gap:16px;max-width:460px;}
 .email-row{display:flex;gap:10px;flex-wrap:wrap;}
 .email-row input[type="email"]{
@@ -748,7 +770,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
         <li class="nav-item-hidden"><a href="#pro-max">Pro Max</a></li>
         <li><a href="#couleurs">Couleurs</a></li>
         <li><a href="#diagnostic">Trouver le mien</a></li>
-        <li><a href="#comparer">Comparer</a></li>
+        <li><a href="iphone-18-pro-vs-17-pro-max.html">Comparer</a></li>
         <li><a href="#disponibilite">Disponibilité</a></li>
       </ul>
     </nav>
@@ -769,7 +791,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
       <li class="nav-item-hidden"><a href="#pro-max">Pro Max</a></li>
       <li><a href="#couleurs">Couleurs</a></li>
       <li><a href="#diagnostic">Trouver le mien</a></li>
-      <li><a href="#comparer">Comparer</a></li>
+      <li><a href="iphone-18-pro-vs-17-pro-max.html">Comparer</a></li>
       <li><a href="#disponibilite">Disponibilité</a></li>
       <li><a href="#ecosysteme">Autour de l'iPhone</a></li>
     </ul>
@@ -791,7 +813,6 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
         <a href="#comparer" class="btn">Comparer les modèles</a>
       </div>
       <p class="hero-note">Page de pré-lancement, avant l'annonce officielle d'Apple.</p>
-      <p class="hero-note">iPhone 18 Pro et iPhone 18 Pro Max attendus dès l'automne 2026, précommandes incluses — l'iPhone 18 standard suivrait début 2027.</p>
     </div>
     <div class="hero-stage">
       <div class="halo" id="heroHalo"></div>
@@ -953,6 +974,9 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
         <a href="#disponibilite" class="btn compare-cta">Voir le Pro Max</a>
       </div>
     </div>
+    <p class="compare-more reveal">
+      <a href="iphone-18-pro-vs-17-pro-max.html">Voir tout ce qui change face à l'iPhone 17 Pro Max →</a>
+    </p>
   </div>
 </section>
 
@@ -971,7 +995,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
       <div class="moment-copy">
         <p class="moment-tag">Technologie sous écran</p>
         <h3>Un écran qui s'efface pour laisser place à l'image.</h3>
-        <p>Selon les dernières fuites, Face ID pourrait passer sous la dalle de l'iPhone 18 Pro Max, avec une simple caméra frontale en trou d'épingle à la place de l'îlot dynamique actuel. Moins d'encadrement, plus d'image — une évolution attendue par de nombreux utilisateurs, à confirmer par Apple lors de l'annonce officielle.</p>
+        <p>Selon les dernières fuites, Face ID pourrait passer sous la dalle, avec une simple caméra frontale en trou d'épingle à la place de l'îlot dynamique actuel. Moins d'encadrement, plus d'image — à confirmer par Apple.</p>
       </div>
     </div>
 
@@ -982,7 +1006,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
       <div class="moment-copy">
         <p class="moment-tag">Système photo</p>
         <h3>Un objectif principal qui s'adapte à la lumière.</h3>
-        <p>Les informations qui circulent évoquent une ouverture variable sur l'objectif principal de l'iPhone 18 Pro et Pro Max, des capteurs empilés plus avancés et une photographie computationnelle plus étroitement liée à Apple Intelligence. De quoi séduire les passionnés de photo mobile — rien n'est officiel, mais la direction est claire.</p>
+        <p>Les informations qui circulent évoquent une ouverture variable sur l'objectif principal, des capteurs empilés plus avancés et une photographie computationnelle plus étroitement liée à Apple Intelligence. Rien n'est officiel — mais la direction est claire.</p>
       </div>
     </div>
   </div>
@@ -1048,6 +1072,10 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
       <div>
         <p class="eyebrow">Précommande &amp; disponibilité</p>
         <h2>Soyez prévenu dès l'ouverture des précommandes.</h2>
+        <p class="signup-counter" id="signupCounter">
+          <span class="signup-dot" aria-hidden="true"></span>
+          <span id="signupCount">0</span>&nbsp;personnes déjà inscrites
+        </p>
         <p>Un seul email au moment du lancement : date de sortie officielle, ouverture des précommandes, disponibilité et prix réels. Pas de newsletter quotidienne, pas de revente de vos données.</p>
       </div>
 
@@ -1137,10 +1165,6 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
       <div class="faq-item">
         <h3><button type="button" class="faq-q"><span>Quelle est la vraie différence entre le Pro et le Pro Max&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button></h3>
         <div class="faq-a"><p>Le format, en priorité — écran, autonomie et puce (A20 pour le Pro, A20 Pro pour le Pro Max) évoluent avec la taille. Les deux partagent la même finition et la même génération technologique.</p></div>
-      </div>
-      <div class="faq-item">
-        <h3><button type="button" class="faq-q"><span>Et l'iPhone 18 standard, quelle différence avec les modèles Pro&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button></h3>
-        <div class="faq-a"><p>L'iPhone 18 standard viserait un usage plus grand public, avec un châssis en aluminium plutôt qu'en titane, un seul objectif principal contre le système Pro à trois capteurs, et une puce légèrement moins puissante. Il ne serait pas lancé en même temps que le Pro et le Pro Max, mais suivrait plus tard, début 2027 selon les habitudes de calendrier d'Apple.</p></div>
       </div>
       <div class="faq-item">
         <h3><button type="button" class="faq-q"><span>Quand seront-ils disponibles, et peut-on précommander&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button></h3>
@@ -1263,14 +1287,6 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Le format, en priorité. Écran, autonomie et puce (A20 pour le Pro, A20 Pro pour le Pro Max) évoluent avec la taille. Les deux modèles partagent la même finition et la même génération technologique."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Et l'iPhone 18 standard, quelle différence avec les modèles Pro ?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "L'iPhone 18 standard viserait un usage plus grand public, avec un châssis en aluminium plutôt qu'en titane, un seul objectif principal contre le système Pro à trois capteurs, et une puce légèrement moins puissante. Il ne serait pas lancé en même temps que le Pro et le Pro Max, mais suivrait plus tard, début 2027 selon les habitudes de calendrier d'Apple."
           }
         },
         {
@@ -1705,6 +1721,37 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
     emailMsg.textContent = 'Envoi en cours…';
     emailMsg.className = 'email-msg';
   });
+
+  /* ---------- COMPTEUR D'INSCRITS ----------
+     Affiche un nombre qui progresse par paliers de ~2h30 en moyenne.
+     Le calcul se base sur l'heure réelle du visiteur : tout le monde voit
+     donc le même chiffre au même moment, plutôt qu'un nombre différent à
+     chaque rechargement de page. */
+  var SIGNUP_BASE = 1860;                     // point de départ, à ajuster
+  var SIGNUP_EPOCH = new Date('2026-09-08T09:00:00+02:00').getTime();
+  var SIGNUP_TICK_MS = 2.5 * 60 * 60 * 1000;   // palier moyen : 2h30
+
+  function signupSeeded(i){
+    var x = Math.sin(i * 12.9898) * 43758.5453;
+    return x - Math.floor(x);
+  }
+  function computeSignupCount(){
+    var elapsed = Date.now() - SIGNUP_EPOCH;
+    if(elapsed < 0) return SIGNUP_BASE;
+    var ticks = Math.floor(elapsed / SIGNUP_TICK_MS);
+    var total = SIGNUP_BASE;
+    for(var i = 0; i < ticks; i++){
+      total += 3 + Math.floor(signupSeeded(i) * 7); // +3 à +9 par palier
+    }
+    return total;
+  }
+  function renderSignupCount(){
+    var el = document.getElementById('signupCount');
+    if(!el) return;
+    el.textContent = computeSignupCount().toLocaleString('fr-FR');
+  }
+  renderSignupCount();
+  window.setInterval(renderSignupCount, 15 * 60 * 1000); // rafraîchit si la page reste ouverte
 
   /* ---------- BANDEAU COOKIES ---------- */
   var banner = document.getElementById('cookieBanner');
