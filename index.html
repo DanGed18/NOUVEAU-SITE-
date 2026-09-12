@@ -464,8 +464,7 @@ section{position:relative;padding:130px 0;}
 @media (max-width:600px){.compare-col{padding:28px;}}
 #colPro{background:var(--sky-blue-soft);}
 .compare-col.recommended{background:#F7D0D0;color:var(--text-ink);}
-.compare-col.recommended .compare-row span:first-child{color:var(--text-ink-soft);}
-.compare-col.recommended .compare-row{border-color:var(--line);}
+.compare-col.recommended .compare-row{border-color:rgba(32,31,38,0.12);}
 .compare-badge{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
 .compare-col.recommended .compare-badge{color:var(--accent);}
 .compare-col h3{font-size:30px;margin-top:12px;}
@@ -473,11 +472,26 @@ section{position:relative;padding:130px 0;}
 .compare-col.recommended .compare-lede{color:var(--text-ink-soft);}
 .compare-rows{margin-top:32px;display:flex;flex-direction:column;}
 .compare-row{
-  display:flex;justify-content:space-between;gap:16px;
-  padding:14px 0;border-top:1px solid var(--line);
-  font-family:var(--font-mono);font-size:13px;
+  padding:18px 0;border-top:1px solid var(--line);
 }
-.compare-row span:first-child{color:var(--text-ink-soft);}
+.compare-row-label{
+  display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text-ink-soft);margin-bottom:8px;
+}
+.compare-row-value{font-family:var(--font-body);font-size:14.5px;line-height:1.6;color:var(--text-ink);}
+.compare-pricing{margin-top:8px;border-top:2px solid var(--line);padding-top:6px;}
+.compare-col.recommended .compare-pricing{border-color:rgba(32,31,38,0.18);}
+.compare-pricing-label{
+  padding-top:12px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text-ink-soft);
+}
+.price-tier{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:12px 0;border-top:1px solid var(--line);
+}
+.compare-col.recommended .price-tier{border-color:rgba(32,31,38,0.12);}
+.price-tier span:first-child{font-family:var(--font-body);font-size:14px;color:var(--text-ink-soft);}
+.price-tier span:last-child{font-family:var(--font-mono);font-size:14.5px;font-weight:600;color:var(--text-ink);}
 .compare-why{margin-top:28px;font-size:14px;color:var(--text-ink-soft);line-height:1.6;}
 .compare-col.recommended .compare-why{color:var(--text-ink-soft);}
 .compare-cta{margin-top:28px;}
@@ -564,10 +578,6 @@ section{position:relative;padding:130px 0;}
   font-size:clamp(40px,5vw,56px);color:var(--text-light);margin-top:6px;
   letter-spacing:-0.01em;
 }
-.price-model-label{
-  margin-top:18px;font-family:var(--font-mono);font-size:12px;color:var(--text-light-soft);
-  border-top:1px solid var(--line-light);padding-top:18px;line-height:1.6;max-width:320px;
-}
 .price-preorder-cta{margin-top:24px;}
 
 /* ================= UPCOMING / EMAIL ================= */
@@ -580,24 +590,6 @@ section{position:relative;padding:130px 0;}
 .upcoming .eyebrow{color:var(--text-ink-soft);}
 .upcoming h2{font-size:clamp(28px,3.6vw,40px);margin-top:14px;}
 .upcoming p{margin-top:14px;color:var(--text-ink-soft);max-width:400px;}
-.signup-counter{
-  display:inline-flex;align-items:center;gap:8px;
-  margin-top:16px;
-  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.02em;
-  color:var(--text-ink-soft);
-}
-.signup-dot{
-  width:7px;height:7px;border-radius:50%;
-  background:#3B6B4E;flex:none;
-  box-shadow:0 0 0 0 rgba(59,107,78,0.55);
-  animation:signupPulse 2.4s ease-out infinite;
-}
-@keyframes signupPulse{
-  0%{box-shadow:0 0 0 0 rgba(59,107,78,0.45);}
-  70%{box-shadow:0 0 0 6px rgba(59,107,78,0);}
-  100%{box-shadow:0 0 0 0 rgba(59,107,78,0);}
-}
-#signupCount{color:var(--text-ink);font-weight:600;}
 @media (prefers-reduced-motion: reduce){.signup-dot{animation:none;}}
 .email-form{display:flex;flex-direction:column;gap:16px;max-width:460px;}
 .email-row{display:flex;gap:10px;flex-wrap:wrap;}
@@ -812,7 +804,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
         <a href="#couleurs" class="btn primary">Voir les couleurs</a>
         <a href="#comparer" class="btn">Comparer les modèles</a>
       </div>
-      <p class="hero-note">Page de pré-lancement, avant l'annonce officielle d'Apple.</p>
+      <p class="hero-note">Page de lancement&nbsp;! Les précommandes des iPhone 18 Pro et 18 Pro Max ouvrent ce samedi 12 septembre en France, pour une livraison et une arrivée en boutique le vendredi 18.</p>
     </div>
     <div class="hero-stage">
       <div class="halo" id="heroHalo"></div>
@@ -865,7 +857,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
           <span class="eyebrow on-dark" id="colorEyebrow">Gris foncé</span><span class="color-pantone" id="colorPantone">Pantone 426C</span>
         </p>
         <h3 id="colorTitle">Un gris profond, sobre et assumé.</h3>
-        <p id="colorDesc">Une teinte terreuse et mate, qui capte la lumière sans jamais la renvoyer brutalement.</p>
+        <p id="colorDesc">Une teinte anthracite et mate qui absorbe la lumière plutôt que de la renvoyer — aussi à l'aise en réunion que le soir venu.</p>
         <div class="swatches" id="swatchGroup" role="group" aria-label="Choix de couleur">
           <!-- swatches injectés par le script -->
         </div>
@@ -949,29 +941,79 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
         <h3>Pour une expérience Pro plus compacte.</h3>
         <p class="compare-lede">Tout l'essentiel du Pro, dans un format qui se glisse partout.</p>
         <div class="compare-rows">
-          <div class="compare-row"><span>Puce</span><span>A20</span></div>
-          <div class="compare-row"><span>Écran</span><span>Format compact</span></div>
-          <div class="compare-row"><span>Caméra</span><span>Objectif principal à ouverture variable</span></div>
-          <div class="compare-row"><span>Autonomie</span><span>Meilleure efficacité énergétique, gravure 2 nm</span></div>
-          <div class="compare-row"><span>Stockage</span><span>De 128 Go à 1 To selon versions</span></div>
-          <div class="compare-row"><span>Matériau</span><span>Châssis affiné, alliage titane</span></div>
+          <div class="compare-row">
+            <span class="compare-row-label">Écran</span>
+            <span class="compare-row-value">6,3 po avec ProMotion jusqu'à 120 Hz. Boîtier unibody en aluminium forgé et face avant Ceramic Shield 2.</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-row-label">Caméra principale</span>
+            <span class="compare-row-value">Système caméra pro ultime. Caméra principale Fusion 48 Mpx avec ouverture variable, pour des photos et des vidéos sublimées par faible luminosité et une profondeur de champ spectaculaire. Et zoom de qualité optique 8x.</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-row-label">Caméra avant</span>
+            <span class="compare-row-value">Center Stage 18 Mpx pour cadrer vos photos avec plus de liberté et intégrer davantage de personnes à l'image.</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-row-label">Autonomie</span>
+            <span class="compare-row-value">Autonomie nettement boostée. Jusqu'à 34 heures de lecture vidéo. Charge filaire plus rapide, jusqu'à 50&nbsp;% en 15 minutes environ avec un adaptateur compatible.</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-row-label">Puce</span>
+            <span class="compare-row-value">A20 Pro. Chambre à vapeur nouvelle génération. Deux Neural Engine 16 cœurs. Taillée pour l'IA.</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-row-label">Logiciel</span>
+            <span class="compare-row-value">iOS 27 et Apple Intelligence. Pour communiquer, s'exprimer et en faire plus sans effort.</span>
+          </div>
+          <div class="compare-pricing">
+            <p class="compare-pricing-label">Tarifs par capacité</p>
+            <div class="price-tier"><span>256 Go</span><span>À partir de 1 479 €</span></div>
+            <div class="price-tier"><span>512 Go</span><span>À partir de 1 729 €</span></div>
+            <div class="price-tier"><span>1 To</span><span>À partir de 2 229 €</span></div>
+            <div class="price-tier"><span>2 To</span><span>À partir de 2 979 €</span></div>
+          </div>
         </div>
-        <a href="#disponibilite" class="btn compare-cta">Voir le Pro</a>
+        <a href="iphone-18-pro-vs-17-pro-max.html" class="btn compare-cta">Voir le Pro</a>
       </div>
       <div class="compare-col recommended" id="colMax">
         <span class="compare-badge">iPhone 18 Pro Max</span>
         <h3>Pour aller jusqu'au bout de l'expérience Pro.</h3>
         <p class="compare-lede">C'est ce que nous recommandons si l'écran et l'autonomie priment sur le format.</p>
         <div class="compare-rows">
-          <div class="compare-row"><span>Puce</span><span>A20 Pro</span></div>
-          <div class="compare-row"><span>Écran</span><span>6,9 po, OLED LTPO+</span></div>
-          <div class="compare-row"><span>Caméra</span><span>Ouverture variable + capteurs empilés 3 couches</span></div>
-          <div class="compare-row"><span>Autonomie</span><span>Optimisée par la gravure 2 nm de l'A20 Pro</span></div>
-          <div class="compare-row"><span>Stockage</span><span>De 128 Go à 1 To selon versions</span></div>
-          <div class="compare-row"><span>Matériau</span><span>Châssis affiné, alliage titane</span></div>
+          <div class="compare-row">
+            <span class="compare-row-label">Écran</span>
+            <span class="compare-row-value">6,9 po avec ProMotion jusqu'à 120 Hz. Boîtier unibody en aluminium forgé et face avant Ceramic Shield 2.</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-row-label">Caméra principale</span>
+            <span class="compare-row-value">Système caméra pro ultime. Caméra principale Fusion 48 Mpx avec ouverture variable, pour des photos et des vidéos sublimées par faible luminosité et une profondeur de champ spectaculaire. Et zoom de qualité optique 8x.</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-row-label">Caméra avant</span>
+            <span class="compare-row-value">Center Stage 18 Mpx pour cadrer vos photos avec plus de liberté et intégrer davantage de personnes à l'image.</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-row-label">Autonomie</span>
+            <span class="compare-row-value">Autonomie nettement boostée. Jusqu'à 34 heures de lecture vidéo. Charge filaire plus rapide, jusqu'à 50&nbsp;% en 15 minutes environ avec un adaptateur compatible.</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-row-label">Puce</span>
+            <span class="compare-row-value">A20 Pro. Chambre à vapeur nouvelle génération. Deux Neural Engine 16 cœurs. Taillée pour l'IA.</span>
+          </div>
+          <div class="compare-row">
+            <span class="compare-row-label">Logiciel</span>
+            <span class="compare-row-value">iOS 27 et Apple Intelligence. Pour communiquer, s'exprimer et en faire plus sans effort.</span>
+          </div>
+          <div class="compare-pricing">
+            <p class="compare-pricing-label">Tarifs par capacité</p>
+            <div class="price-tier"><span>256 Go</span><span>À partir de 1 629 €</span></div>
+            <div class="price-tier"><span>512 Go</span><span>À partir de 1 879 €</span></div>
+            <div class="price-tier"><span>1 To</span><span>À partir de 2 379 €</span></div>
+            <div class="price-tier"><span>2 To</span><span>À partir de 3 129 €</span></div>
+          </div>
         </div>
         <p class="compare-why">Nous le recommandons par défaut à ceux qui hésitent — il est plus simple de retirer un centimètre que de regretter un écran trop petit.</p>
-        <a href="#disponibilite" class="btn compare-cta">Voir le Pro Max</a>
+        <a href="iphone-18-pro-vs-17-pro-max.html" class="btn compare-cta">Voir le Pro Max</a>
       </div>
     </div>
     <p class="compare-more reveal">
@@ -1051,15 +1093,14 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
 
       <div class="price-panel">
         <div class="price-toggle" role="group" aria-label="Choix du modèle">
-          <button type="button" class="active" data-price-model="pro" data-price="1399">Pro</button>
-          <button type="button" data-price-model="promax" data-price="1563">Pro Max</button>
+          <button type="button" class="active" data-price-model="pro" data-price="1479">Pro</button>
+          <button type="button" data-price-model="promax" data-price="1629">Pro Max</button>
         </div>
         <p class="price-amount-row">
           À partir de
           <span class="price-amount" id="priceAmount">0 €</span>
         </p>
-        <p class="price-model-label" id="priceModelLabel">Estimation pour l'iPhone 18 Pro — basée sur la hausse appliquée l'an dernier. Le prix confirmé sera celui annoncé par Apple au lancement.</p>
-        <a href="#disponibilite" class="btn on-dark price-preorder-cta">Pré-commandez</a>
+        <a href="https://www.amazon.fr/dp/B0HJBG9HKM?th=1&amp;linkCode=ll2&amp;tag=danybgv-21&amp;linkId=f405892b29eed7d1bedb0ce7a63fd329&amp;ref_=as_li_ss_tl" class="btn on-dark price-preorder-cta" id="pricePreorderCta" rel="sponsored nofollow noopener" target="_blank">Pré-commandez</a>
       </div>
     </div>
   </div>
@@ -1071,12 +1112,8 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
     <div class="upcoming reveal">
       <div>
         <p class="eyebrow">Précommande &amp; disponibilité</p>
-        <h2>Soyez prévenu dès l'ouverture des précommandes.</h2>
-        <p class="signup-counter" id="signupCounter">
-          <span class="signup-dot" aria-hidden="true"></span>
-          <span id="signupCount">0</span>&nbsp;personnes déjà inscrites
-        </p>
-        <p>Un seul email au moment du lancement : date de sortie officielle, ouverture des précommandes, disponibilité et prix réels. Pas de newsletter quotidienne, pas de revente de vos données.</p>
+        <h2>Précommandez dès maintenant.</h2>
+        <p>Les précommandes de l'iPhone 18 Pro et Pro Max sont ouvertes. Inscrivez votre email pour être prévenu dès l'arrivée en boutique et suivre la disponibilité en temps réel. Pas de newsletter quotidienne, pas de revente de vos données.</p>
       </div>
 
       <!-- ============================================================
@@ -1123,27 +1160,27 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
     <div class="eco-strip reveal">
       <div class="eco-card">
         <div class="eco-photo"><img src="images/eco-airpods-pro-3.webp" width="814" height="814" alt="AirPods Pro 3" loading="lazy" decoding="async"></div>
-        <h3>AirPods Pro 3</h3>
-        <p>Réduction active du bruit, détection de la fréquence cardiaque, audio spatial et recharge USB-C.</p>
-        <a href="https://www.amazon.fr/dp/B0FQF32239?&amp;linkCode=ll2&amp;tag=danybgv-21&amp;linkId=193c5f78b3390970048ad03a0fce1ff1&amp;ref_=as_li_ss_tl" class="eco-cta" rel="sponsored nofollow noopener" target="_blank">Découvrir →</a>
+        <h3>AirPods 5</h3>
+        <p>Réduction active du bruit adaptative, puce H2, audio spatial personnalisé et une autonomie généreuse avec le boîtier de charge.</p>
+        <a href="https://www.amazon.fr/Apple-%C3%89couteurs-AirPods-Bo%C3%AEtier-Charge/dp/B0HJB8ZJT5?th=1&amp;linkCode=ll2&amp;tag=danybgv-21&amp;linkId=3c886f550d0531b344feb4586ea0c4fa&amp;ref_=as_li_ss_tl" class="eco-cta" rel="sponsored nofollow noopener" target="_blank">Découvrir →</a>
       </div>
       <div class="eco-card">
         <div class="eco-photo"><img src="images/eco-apple-watch-series-11.webp" width="326" height="381" alt="Apple Watch Series 11" loading="lazy" decoding="async"></div>
-        <h3>Apple Watch Series 11</h3>
-        <p>Score de sommeil, suivi de la santé et écran toujours activé, au poignet.</p>
-        <a href="https://www.amazon.fr/Apple-Cellular-connect%C3%A9e-Bracelet-dactivit%C3%A9/dp/B0FQFBZSQZ?th=1&amp;linkCode=ll2&amp;tag=danybgv-21&amp;linkId=2d5cda1aec1ed2ee9851d07a82596ebd&amp;ref_=as_li_ss_tl" class="eco-cta" rel="sponsored nofollow noopener" target="_blank">Découvrir →</a>
+        <h3>Apple Watch Ultra 4</h3>
+        <p>Boîtier en titane, écran le plus lumineux d'Apple, autonomie multi-jours et suivi sportif de très haut niveau.</p>
+        <a href="https://www.amazon.fr/Apple-Cellular-Bo%C3%AEtier-Titane-Naturel/dp/B0HJB4DZQW?&amp;linkCode=ll2&amp;tag=danybgv-21&amp;linkId=3f6dde3ad954998525788f88ea357234&amp;ref_=as_li_ss_tl" class="eco-cta" rel="sponsored nofollow noopener" target="_blank">Découvrir →</a>
       </div>
       <div class="eco-card">
         <div class="eco-photo"><img src="images/eco-ipad.webp" width="1736" height="1903" alt="iPad" loading="lazy" decoding="async"></div>
-        <h3>iPad</h3>
-        <p>Un second écran, ailleurs — pour dessiner, lire ou travailler dans le prolongement de l'iPhone.</p>
-        <a href="https://www.amazon.fr/dp/B0FWD6KNY8?th=1&amp;linkCode=ll2&amp;tag=danybgv-21&amp;linkId=35d8a7c202b64ea80859f86057f7f405&amp;ref_=as_li_ss_tl" class="eco-cta" rel="sponsored nofollow noopener" target="_blank">Découvrir →</a>
+        <h3>Apple Watch Série 12</h3>
+        <p>Suivi de la santé au quotidien, écran toujours activé et intégration complète avec votre iPhone.</p>
+        <a href="https://www.amazon.fr/Apple-Watch-Bo%C3%AEtier-Aluminium-Noir/dp/B0HJB6DQ4H?&amp;linkCode=ll2&amp;tag=danybgv-21&amp;linkId=1d1641eafef1a0eebc17b0b72f56aa29&amp;ref_=as_li_ss_tl" class="eco-cta" rel="sponsored nofollow noopener" target="_blank">Découvrir →</a>
       </div>
       <div class="eco-card">
         <div class="eco-photo cover-photo"><img src="images/eco-macbook-neo.webp" width="980" height="654" alt="MacBook Neo 13 pouces" loading="lazy" decoding="async"></div>
-        <h3>MacBook Neo 13″</h3>
-        <p>Puce A18 Pro pensée pour l'IA, écran Liquid Retina, 8 Go de mémoire unifiée.</p>
-        <a href="https://www.amazon.fr/Apple-MacBook-2026-Portable-avec/dp/B0GR6LPCW6?th=1&amp;linkCode=ll2&amp;tag=danybgv-21&amp;linkId=d8feab7a03de7ab692291275aa3ec035&amp;ref_=as_li_ss_tl" class="eco-cta" rel="sponsored nofollow noopener" target="_blank">Découvrir →</a>
+        <h3>Coque &amp; chargeur</h3>
+        <p>L'essentiel pour protéger et recharger votre iPhone 18 Pro dès le déballage.</p>
+        <a href="https://www.amazon.fr/cart?&amp;linkCode=ll2&amp;tag=danybgv-21&amp;linkId=bdf77a90c8e259d3f3767f44c85dd084&amp;ref_=as_li_ss_tl" class="eco-cta" rel="sponsored nofollow noopener" target="_blank">Découvrir →</a>
       </div>
     </div>
 
@@ -1469,25 +1506,25 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
     {
       id:'grisfonce', name:'Gris foncé', pantone:'Pantone 426C', hex:'#3A3D42',
       title:"Un gris profond, sobre et assumé.",
-      desc:"Une teinte terreuse et mate, qui capte la lumière sans jamais la renvoyer brutalement.",
+      desc:"Une teinte anthracite et mate qui absorbe la lumière plutôt que de la renvoyer — aussi à l'aise en réunion que le soir venu.",
       img:'images/color-grisfonce.webp'
     },
     {
       id:'argent', name:'Argent', pantone:'Pantone 427C', hex:'#C7CACB',
-      title:"L'argent, fidèle à lui-même.",
-      desc:"Un peu proche de la teinte de la génération actuelle.",
+      title:"L'argent, intemporel et lumineux.",
+      desc:"Un ton clair et poli qui capte chaque reflet, pour un rendu net et précieux en toute circonstance.",
       img:'images/color-argent.webp'
     },
     {
       id:'bleuclair', name:'Bleu clair', pantone:'Pantone 2121', hex:'#8FA9D8',
       title:"Une fraîcheur discrète, presque une brume.",
-      desc:"Un bleu pâle et lumineux, à mi-chemin entre le ciel et la lavande.",
+      desc:"Un bleu pâle et lumineux, à mi-chemin entre le ciel et la lavande — doux au regard, différent de tout ce qu'Apple a proposé jusqu'ici.",
       img:'images/color-bleuclair.webp'
     },
     {
       id:'darkcherry', name:'Dark Cherry', pantone:'Pantone 6076', hex:'#5C2233',
-      title:"Principale nouveauté de la gamme.",
-      desc:"Un noir mat et profond, pensé pour ceux qui veulent que l'appareil disparaisse dans la poche et s'impose sur la table.",
+      title:"Dark Cherry, la teinte la plus attendue.",
+      desc:"Un rouge profond et veiné, entre le bordeaux et la cerise noire — intense en pleine lumière, presque mystérieux à l'ombre.",
       img:'images/color-darkcherry.webp',
       badge:'Nouveau'
     }
@@ -1622,11 +1659,11 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
   });
 
   var priceAmountEl = document.getElementById('priceAmount');
-  var priceModelLabelEl = document.getElementById('priceModelLabel');
+  var pricePreorderCtaEl = document.getElementById('pricePreorderCta');
   var priceToggleBtns = document.querySelectorAll('.price-toggle button');
-  var priceLabels = {
-    pro: "Estimation pour l'iPhone 18 Pro — basée sur la hausse appliquée l'an dernier. Le prix confirmé sera celui annoncé par Apple au lancement.",
-    promax: "Estimation pour l'iPhone 18 Pro Max — basée sur la hausse appliquée l'an dernier (1 329 € pour le Pro Max précédent). Le prix confirmé sera celui annoncé par Apple au lancement."
+  var priceAmazonLinks = {
+    pro: 'https://www.amazon.fr/dp/B0HJBG9HKM?th=1&linkCode=ll2&tag=danybgv-21&linkId=f405892b29eed7d1bedb0ce7a63fd329&ref_=as_li_ss_tl',
+    promax: 'https://www.amazon.fr/dp/B0HJBDGDY1?th=1&linkCode=ll2&tag=danybgv-21&linkId=cdbe8b5d4875ab09635aeb07f25b881c&ref_=as_li_ss_tl'
   };
   var currentPrice = 0;
 
@@ -1655,7 +1692,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
       priceToggleBtns.forEach(function(b){ b.classList.remove('active'); });
       btn.classList.add('active');
       var model = btn.getAttribute('data-price-model');
-      priceModelLabelEl.textContent = priceLabels[model];
+      if(pricePreorderCtaEl){ pricePreorderCtaEl.href = priceAmazonLinks[model]; }
       animateCounter(parseInt(btn.getAttribute('data-price'), 10));
     });
   });
@@ -1667,7 +1704,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
       entries.forEach(function(entry){
         if(entry.isIntersecting && !priceObserved){
           priceObserved = true;
-          animateCounter(1399);
+          animateCounter(1479);
           priceObs.disconnect();
         }
       });
@@ -1721,37 +1758,6 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
     emailMsg.textContent = 'Envoi en cours…';
     emailMsg.className = 'email-msg';
   });
-
-  /* ---------- COMPTEUR D'INSCRITS ----------
-     Affiche un nombre qui progresse par paliers de ~2h30 en moyenne.
-     Le calcul se base sur l'heure réelle du visiteur : tout le monde voit
-     donc le même chiffre au même moment, plutôt qu'un nombre différent à
-     chaque rechargement de page. */
-  var SIGNUP_BASE = 1860;                     // point de départ, à ajuster
-  var SIGNUP_EPOCH = new Date('2026-09-08T09:00:00+02:00').getTime();
-  var SIGNUP_TICK_MS = 2.5 * 60 * 60 * 1000;   // palier moyen : 2h30
-
-  function signupSeeded(i){
-    var x = Math.sin(i * 12.9898) * 43758.5453;
-    return x - Math.floor(x);
-  }
-  function computeSignupCount(){
-    var elapsed = Date.now() - SIGNUP_EPOCH;
-    if(elapsed < 0) return SIGNUP_BASE;
-    var ticks = Math.floor(elapsed / SIGNUP_TICK_MS);
-    var total = SIGNUP_BASE;
-    for(var i = 0; i < ticks; i++){
-      total += 3 + Math.floor(signupSeeded(i) * 7); // +3 à +9 par palier
-    }
-    return total;
-  }
-  function renderSignupCount(){
-    var el = document.getElementById('signupCount');
-    if(!el) return;
-    el.textContent = computeSignupCount().toLocaleString('fr-FR');
-  }
-  renderSignupCount();
-  window.setInterval(renderSignupCount, 15 * 60 * 1000); // rafraîchit si la page reste ouverte
 
   /* ---------- BANDEAU COOKIES ---------- */
   var banner = document.getElementById('cookieBanner');
