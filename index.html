@@ -1344,7 +1344,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
 
 <!-- ================= BANDEAU COOKIES ================= -->
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Gestion des cookies">
-  <p>Ce site souhaite déposer un cookie de mesure d'audience pour comprendre quelles pages sont consultées. Aucune donnée n'est revendue. Vous pouvez refuser sans perdre l'accès au contenu.</p>
+  <p>Ce site souhaite déposer des cookies de mesure d'audience et, le cas échéant, de publicité ciblée (Meta/Facebook) pour comprendre quelles pages sont consultées et mesurer l'efficacité de ses campagnes. Aucune donnée n'est revendue. Vous pouvez refuser sans perdre l'accès au contenu.</p>
   <div class="cookie-actions">
     <button type="button" class="btn primary" id="cookieAccept">Accepter</button>
     <button type="button" class="btn on-dark" id="cookieRefuse">Refuser</button>
@@ -1450,6 +1450,9 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
   // Dès que vous renseignez un identifiant, le bandeau cookies apparaît
   // et le script de mesure n'est chargé qu'après acceptation.
   var ANALYTICS_ID = "";
+  // Identifiant du Pixel Meta (Facebook/Instagram Ads). Même logique :
+  // vide = rien n'est chargé. Renseigné = chargé uniquement après acceptation du bandeau.
+  var META_PIXEL_ID = "";
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1843,10 +1846,22 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
     gtag('config', ANALYTICS_ID, { anonymize_ip: true });
   }
 
-  if(ANALYTICS_ID){
+  function loadMetaPixel(){
+    if(!META_PIXEL_ID) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', META_PIXEL_ID);
+    window.fbq('track', 'PageView');
+  }
+
+  if(ANALYTICS_ID || META_PIXEL_ID){
     var stored = readConsent();
     if(stored === 'accepte'){
       loadAnalytics();
+      loadMetaPixel();
     } else if(stored !== 'refuse'){
       banner.classList.add('show');
     }
@@ -1854,6 +1869,7 @@ footer{background:var(--encre);color:var(--text-light-soft);padding:80px 0 32px;
       writeConsent('accepte');
       banner.classList.remove('show');
       loadAnalytics();
+      loadMetaPixel();
     });
     document.getElementById('cookieRefuse').addEventListener('click', function(){
       writeConsent('refuse');
